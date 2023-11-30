@@ -1,29 +1,20 @@
-import { Link } from '@remix-run/react'
+import { Link, useLocation } from '@remix-run/react'
+import Logo from '../../public/img/logo.svg'
+import Navegacion from './navegacion'
 
 const Header = () => {
+
+  const location = useLocation()
+
   return (
     <header className="header">
       <div className="contenedor barra">
-        <div className="logo">
+        <Link to='/'>
+          <img className="logo" src={Logo} alt="Imagen Logo" />
+        </Link>
 
-        </div>
-
-        <nav className="navegacion">
-            <Link
-              to="/"
-            > Inicio </Link>
-            <Link
-              to="/nosotros"
-            > Nosotros </Link>
-            <Link
-              to="/tienda"
-            > Tienda </Link>
-            <Link
-              to="/blog"
-            > Blog </Link>
-        </nav>
+        <Navegacion/>
       </div>
-      
     </header>
   )
 }
