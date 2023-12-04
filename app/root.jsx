@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import {
     Meta,
     Links,
     Outlet,
     Scripts,
-    LiveReload
+    LiveReload,
+    Link
 } from '@remix-run/react'
 import style from '~/css/app.css';
 import Header from '~/components/header';
@@ -28,10 +30,34 @@ export function links(){
 }
 
 export default function app(){
+    const [carrito, setCarrito] = useState([])
 
+    const agregarCarrito = guitarra => {
+
+        const existe = carrito.some(guitarraState => guitarraState.id === guitarra.id)
+
+        if(existe){
+            const guitarraExiste = carrito.map( guitarraState => {
+                if(guitarraState => guitarraState.id === guitarra.id){
+                    guitarraState.cantidad = guitarra.cantidad;
+                }
+
+                return guitarraState
+            })
+            setCarrito(guitarraExiste)
+        }else{
+            setCarrito([...carrito, guitarra])
+        }
+    }
     return(
         <Document>
-            <Outlet/>
+            <Outlet
+                context={{
+                    agregarCarrito,
+                    carrito
+                }}
+            
+            />
         </Document>
     )
 }
@@ -52,5 +78,13 @@ function Document({children}){
                 <LiveReload/>
             </body>
         </html>
+    )
+}
+
+export function errorBoundary({error}){
+    return(
+        <Document>
+            <p className='error'>{error.status}{error.statusText}</p>
+        </Document>
     )
 }

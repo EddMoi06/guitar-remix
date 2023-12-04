@@ -1,0 +1,127 @@
+
+.guitarras-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5rem;
+}
+
+@media (min-width:768px){
+    .guitarras-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width:992px){
+    .guitarras-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.guitarra{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 1rem;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.guitarra .contenido{
+    padding: 1rem;
+}
+
+.guitarra .contenido h3{
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+.guitarra .descripcion{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    font-size: 1.8rem;
+}
+
+.guitarra .precio{
+    color: var(--primary);
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.flex-final{
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .flex-final{
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        right: 5rem;
+        top: 5rem;
+        margin-bottom: 2rem;
+    } 
+}
+
+.btn-volver{
+    display: block;
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--black);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    transition: background-color, transform, .3s;
+}
+
+.btn-volver:hover{
+    background-color: var(--primary);
+    transform: scale(1.1);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label{
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+.formulario label::after{
+    content: '';
+    width: 30%;
+    height: 1px;
+    background-image: radial-gradient(var(--primary), transparent);
+    display: block;
+    margin: 0 auto;
+}
+
+select{
+    padding: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: 1px solid var(--black);
+}
+
+.formulario input[type='submit']{
+    background-color: var(--black);
+    border: none;
+    padding: 1.4rem;
+    margin-top: 3rem;
+    color: var(--white);
+    border-radius: 1rem;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.formulario input[type='submit']:hover{
+    background-color: var(--primary);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgb(0 0 0 / .3);
+}
