@@ -30,7 +30,7 @@ const Carrito = () => {
     }, [carrito])
 
   return (
-    <ClientOnly fallback={'cargando'}>
+    <ClientOnly fallback={''}>
         {() => (
             <main className="contenedor">
                 <h2 className="heading">Carrito de Compras</h2>
